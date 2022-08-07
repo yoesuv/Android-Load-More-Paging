@@ -1,4 +1,4 @@
-package com.yoesuv.infinite_scroll
+package com.yoesuv.menu.infinite_scroll
 
 import org.junit.Test
 

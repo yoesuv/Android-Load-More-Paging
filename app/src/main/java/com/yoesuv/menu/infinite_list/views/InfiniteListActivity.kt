@@ -1,4 +1,4 @@
-package com.yoesuv.infinite_grid.views
+package com.yoesuv.menu.infinite_list.views
 
 import android.content.Context
 import android.content.Intent
@@ -6,22 +6,22 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.yoesuv.infinite_scroll.R
-import com.yoesuv.infinite_scroll.databinding.ActivityInfiniteGridBinding
+import com.yoesuv.menu.infinite_scroll.R
+import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteListBinding
 
-class InfiniteGridActivity: AppCompatActivity() {
+class InfiniteListActivity: AppCompatActivity() {
 
     companion object {
         fun getInstance(context: Context): Intent {
-            return Intent(context, InfiniteGridActivity::class.java)
+            return Intent(context, InfiniteListActivity::class.java)
         }
     }
 
-    private lateinit var binding: ActivityInfiniteGridBinding
+    private lateinit var binding: ActivityInfiniteListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_infinite_grid)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_infinite_list)
         binding.lifecycleOwner = this
 
         setupToolbar()
@@ -35,7 +35,7 @@ class InfiniteGridActivity: AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        supportActionBar?.setTitle(R.string.button_pagination_grid)
+        supportActionBar?.setTitle(R.string.button_pagination_list)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

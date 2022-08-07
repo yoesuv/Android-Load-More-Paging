@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.yoesuv.infinite_scroll"
+        applicationId "com.yoesuv.menu.infinite_scroll"
         minSdk 21
         targetSdk 32
         versionCode 1

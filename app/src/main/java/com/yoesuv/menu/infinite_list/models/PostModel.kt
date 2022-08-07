@@ -1,4 +1,4 @@
-package com.yoesuv.infinite_list.models
+package com.yoesuv.menu.infinite_list.models
 
 
 import androidx.annotation.Keep

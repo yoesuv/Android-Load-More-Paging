@@ -6,7 +6,7 @@
     <data>
         <variable
             name="main"
-            type="com.yoesuv.infinite_scroll.viewmodels.MainViewModel" />
+            type="com.yoesuv.menu.infinite_scroll.viewmodels.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,12 +1,12 @@
-package com.yoesuv.infinite_scroll.views
+package com.yoesuv.menu.infinite_scroll.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.yoesuv.infinite_scroll.R
-import com.yoesuv.infinite_scroll.databinding.ActivityMainBinding
-import com.yoesuv.infinite_scroll.viewmodels.MainViewModel
+import com.yoesuv.menu.infinite_scroll.R
+import com.yoesuv.menu.infinite_scroll.databinding.ActivityMainBinding
+import com.yoesuv.menu.infinite_scroll.viewmodels.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 

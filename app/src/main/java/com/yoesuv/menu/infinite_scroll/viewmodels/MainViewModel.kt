@@ -1,9 +1,9 @@
-package com.yoesuv.infinite_scroll.viewmodels
+package com.yoesuv.menu.infinite_scroll.viewmodels
 
 import android.view.View
 import androidx.lifecycle.ViewModel
-import com.yoesuv.infinite_grid.views.InfiniteGridActivity
-import com.yoesuv.infinite_list.views.InfiniteListActivity
+import com.yoesuv.menu.infinite_grid.views.InfiniteGridActivity
+import com.yoesuv.menu.infinite_list.views.InfiniteListActivity
 
 class MainViewModel: ViewModel() {
 
