@@ -3,10 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="main"
+            type="com.yoesuv.infinite_scroll.viewmodels.MainViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -18,14 +24,18 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPaginationList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_pagination_list"/>
+            android:text="@string/button_pagination_list"
+            android:onClick="@{main::onClickPaginationList}"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPaginationGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_pagination_grid"/>
+            android:text="@string/button_pagination_grid"
+            android:onClick="@{main::onClickPaginationGrid}"/>
 
     </LinearLayout>
 
