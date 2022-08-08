@@ -3,7 +3,7 @@ package com.yoesuv.menu.infinite_list.adapters.viewholders
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.yoesuv.infinite_scroll.databinding.ItemLoadMoreBinding
+import com.yoesuv.menu.infinite_scroll.databinding.ItemLoadMoreBinding
 
 class LoadMoreViewHolder(binding: ItemLoadMoreBinding): RecyclerView.ViewHolder(binding.root) {
 
