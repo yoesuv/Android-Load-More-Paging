@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface RestApiPost {
 
     // https://jsonplaceholder.typicode.com/posts?_page=5&_limit=20
-    @GET("post")
+    @GET("posts")
     suspend fun getListPropertyMaster(
         @Query("_page") page: Int,
         @Query("_limit") limit: Int
