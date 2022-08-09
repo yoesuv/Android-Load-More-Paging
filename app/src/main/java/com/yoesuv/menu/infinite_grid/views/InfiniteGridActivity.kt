@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.yoesuv.menu.infinite_grid.viewmodels.InfiniteGridViewModel
 import com.yoesuv.menu.infinite_scroll.R
 import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteGridBinding
 
@@ -18,11 +20,14 @@ class InfiniteGridActivity: AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityInfiniteGridBinding
+    private lateinit var viewModel: InfiniteGridViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_infinite_grid)
         binding.lifecycleOwner = this
+        viewModel = ViewModelProvider(this)[InfiniteGridViewModel::class.java]
+        binding.grid = viewModel
 
         setupToolbar()
     }
