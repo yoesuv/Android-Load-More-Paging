@@ -7,9 +7,14 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.yoesuv.menu.infinite_grid.adapters.GridPostAdapter
 import com.yoesuv.menu.infinite_grid.viewmodels.InfiniteGridViewModel
+import com.yoesuv.menu.infinite_list.adapters.LoadMoreStateAdapter
 import com.yoesuv.menu.infinite_scroll.R
 import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteGridBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class InfiniteGridActivity: AppCompatActivity() {
 
@@ -21,6 +26,8 @@ class InfiniteGridActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityInfiniteGridBinding
     private lateinit var viewModel: InfiniteGridViewModel
+    private lateinit var gridPostAdapter: GridPostAdapter
+    private lateinit var loadMoreAdapter: LoadMoreStateAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +37,8 @@ class InfiniteGridActivity: AppCompatActivity() {
         binding.grid = viewModel
 
         setupToolbar()
+        setupRecyclerView()
+        setupPaging()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -42,6 +51,20 @@ class InfiniteGridActivity: AppCompatActivity() {
     private fun setupToolbar() {
         supportActionBar?.setTitle(R.string.button_pagination_grid)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun setupRecyclerView() {
+        gridPostAdapter = GridPostAdapter()
+        loadMoreAdapter = LoadMoreStateAdapter()
+        binding.rvInfiniteGrid.adapter = gridPostAdapter.withLoadStateFooter(loadMoreAdapter)
+    }
+
+    private fun setupPaging() {
+        lifecycleScope.launch {
+            viewModel.loadPostPaginationData().collect {
+                gridPostAdapter.submitData(it)
+            }
+        }
     }
 
 }
