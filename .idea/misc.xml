@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.17835731414868106" />
+        <entry key="app/src/main/res/drawable/bg_item_grid.xml" value="0.2975" />
         <entry key="app/src/main/res/layout/activity_infinite_grid.xml" value="0.2907225309961522" />
         <entry key="app/src/main/res/layout/activity_infinite_list.xml" value="0.24963325183374083" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.34375" />
