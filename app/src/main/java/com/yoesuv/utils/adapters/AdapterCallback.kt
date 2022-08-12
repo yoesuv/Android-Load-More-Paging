@@ -1,4 +1,4 @@
-package com.yoesuv.utils
+package com.yoesuv.utils.adapters
 
 import androidx.recyclerview.widget.DiffUtil
 import com.yoesuv.menu.infinite_list.models.PostModel

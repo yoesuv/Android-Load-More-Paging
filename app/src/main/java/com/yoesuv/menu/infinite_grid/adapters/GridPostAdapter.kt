@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import com.yoesuv.menu.infinite_grid.adapters.viewholders.ItemGridPostViewHolder
 import com.yoesuv.menu.infinite_list.models.PostModel
-import com.yoesuv.utils.AdapterCallback
+import com.yoesuv.utils.adapters.AdapterCallback
 
 class GridPostAdapter: PagingDataAdapter<PostModel, ItemGridPostViewHolder>(AdapterCallback.diffPost) {
 

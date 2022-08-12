@@ -1,9 +1,8 @@
-package com.yoesuv.menu.infinite_list.adapters
+package com.yoesuv.utils.adapters
 
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import com.yoesuv.menu.infinite_list.adapters.viewholders.LoadMoreViewHolder
 
 class LoadMoreStateAdapter : LoadStateAdapter<LoadMoreViewHolder>() {
     override fun onBindViewHolder(holder: LoadMoreViewHolder, loadState: LoadState) {

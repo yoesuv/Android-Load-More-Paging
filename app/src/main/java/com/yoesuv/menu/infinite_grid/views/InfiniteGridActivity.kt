@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.yoesuv.menu.infinite_grid.adapters.GridPostAdapter
 import com.yoesuv.menu.infinite_grid.viewmodels.InfiniteGridViewModel
-import com.yoesuv.menu.infinite_list.adapters.LoadMoreStateAdapter
+import com.yoesuv.utils.adapters.LoadMoreStateAdapter
 import com.yoesuv.menu.infinite_scroll.R
 import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteGridBinding
 import kotlinx.coroutines.flow.collect

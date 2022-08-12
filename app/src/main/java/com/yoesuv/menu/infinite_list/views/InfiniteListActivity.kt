@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.yoesuv.menu.infinite_list.adapters.ListPostAdapter
-import com.yoesuv.menu.infinite_list.adapters.LoadMoreStateAdapter
+import com.yoesuv.utils.adapters.LoadMoreStateAdapter
 import com.yoesuv.menu.infinite_list.viewmodels.InfiniteListViewModel
 import com.yoesuv.menu.infinite_scroll.R
 import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteListBinding

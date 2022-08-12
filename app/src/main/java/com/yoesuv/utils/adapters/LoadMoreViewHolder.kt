@@ -1,4 +1,4 @@
-package com.yoesuv.menu.infinite_list.adapters.viewholders
+package com.yoesuv.utils.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
