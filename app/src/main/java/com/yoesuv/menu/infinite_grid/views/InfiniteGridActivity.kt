@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import com.yoesuv.menu.infinite_grid.adapters.GridPostAdapter
 import com.yoesuv.menu.infinite_grid.viewmodels.InfiniteGridViewModel
 import com.yoesuv.utils.adapters.LoadMoreStateAdapter
@@ -28,6 +29,7 @@ class InfiniteGridActivity: AppCompatActivity() {
     private lateinit var viewModel: InfiniteGridViewModel
     private lateinit var gridPostAdapter: GridPostAdapter
     private lateinit var loadMoreAdapter: LoadMoreStateAdapter
+    private lateinit var gridLayoutManager: GridLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,9 +56,22 @@ class InfiniteGridActivity: AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
+        val spanCount = resources.getInteger(R.integer.spanCount)
+        gridLayoutManager = GridLayoutManager(this, spanCount)
         gridPostAdapter = GridPostAdapter()
         loadMoreAdapter = LoadMoreStateAdapter()
+        binding.rvInfiniteGrid.layoutManager = gridLayoutManager
         binding.rvInfiniteGrid.adapter = gridPostAdapter.withLoadStateFooter(loadMoreAdapter)
+        gridLayoutManager.spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return if (position == gridPostAdapter.itemCount && loadMoreAdapter.itemCount > 0) {
+                    spanCount
+                } else {
+                    1
+                }
+            }
+
+        }
     }
 
     private fun setupPaging() {
