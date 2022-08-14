@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.17835731414868106" />
+        <entry key="app/src/main/res/drawable/bg_item_grid.xml" value="0.2975" />
+        <entry key="app/src/main/res/layout/activity_infinite_grid.xml" value="0.2907225309961522" />
+        <entry key="app/src/main/res/layout/activity_infinite_list.xml" value="0.24963325183374083" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.34375" />
+        <entry key="app/src/main/res/layout/item_grid_post.xml" value="0.2907225309961522" />
+        <entry key="app/src/main/res/layout/item_list_post.xml" value="0.24324324324324326" />
+        <entry key="app/src/main/res/layout/item_load_more.xml" value="0.24324324324324326" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

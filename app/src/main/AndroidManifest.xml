@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.yoesuv.infinite_scroll">
+    package="com.yoesuv.menu.infinite_scroll">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -14,7 +16,7 @@
         android:theme="@style/Theme.InfiniteScroll"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.yoesuv.menu.infinite_list.views.InfiniteListActivity"/>
+        <activity android:name="com.yoesuv.menu.infinite_grid.views.InfiniteGridActivity"/>
+
     </application>
 
 </manifest>

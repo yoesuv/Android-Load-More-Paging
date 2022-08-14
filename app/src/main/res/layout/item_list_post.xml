@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="post"
+            type="com.yoesuv.menu.infinite_list.viewmodels.ItemListPostViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_post_margin"
+            android:layout_marginHorizontal="@dimen/item_post_margin"
+            android:text="@{post.title}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="@tools:sample/lorem"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="@dimen/item_post_margin"
+            android:text="@{post.body}"
+            android:textSize="14sp"
+            android:maxLines="5"
+            android:ellipsize="end"
+            tools:text="@tools:sample/lorem/random"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/item_post_margin"
+            android:background="@color/grey_200"/>
+
+    </LinearLayout>
+
+</layout>
