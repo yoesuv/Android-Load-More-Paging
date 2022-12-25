@@ -13,7 +13,6 @@ import com.yoesuv.utils.adapters.LoadMoreStateAdapter
 import com.yoesuv.menu.infinite_list.viewmodels.InfiniteListViewModel
 import com.yoesuv.menu.infinite_scroll.R
 import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteListBinding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class InfiniteListActivity: AppCompatActivity() {
@@ -43,7 +42,7 @@ class InfiniteListActivity: AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
         return super.onOptionsItemSelected(item)
     }
