@@ -14,7 +14,6 @@ import com.yoesuv.menu.infinite_grid.viewmodels.InfiniteGridViewModel
 import com.yoesuv.utils.adapters.LoadMoreStateAdapter
 import com.yoesuv.menu.infinite_scroll.R
 import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteGridBinding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class InfiniteGridActivity: AppCompatActivity() {
@@ -45,7 +44,7 @@ class InfiniteGridActivity: AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
         return super.onOptionsItemSelected(item)
     }

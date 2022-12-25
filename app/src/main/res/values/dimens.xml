@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <dimen name="item_post_margin">14dp</dimen>
+
+    <dimen name="main_button_text_size">16sp</dimen>
+    <dimen name="main_button_padding_vertical">10dp</dimen>
+    <dimen name="main_button_padding_horizontal">20dp</dimen>
+
 </resources>
