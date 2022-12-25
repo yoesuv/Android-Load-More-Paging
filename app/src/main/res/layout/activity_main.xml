@@ -27,16 +27,22 @@
             android:id="@+id/btnPaginationList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/main_button_padding_horizontal"
+            android:paddingVertical="@dimen/main_button_padding_vertical"
             android:textAllCaps="false"
             android:text="@string/button_pagination_list"
+            android:textSize="@dimen/main_button_text_size"
             android:onClick="@{main::onClickPaginationList}"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPaginationGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/main_button_padding_horizontal"
+            android:paddingVertical="@dimen/main_button_padding_vertical"
             android:textAllCaps="false"
             android:text="@string/button_pagination_grid"
+            android:textSize="@dimen/main_button_text_size"
             android:onClick="@{main::onClickPaginationGrid}"/>
 
     </LinearLayout>
