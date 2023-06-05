@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace 'com.yoesuv.menu.infinite_scroll'
     compileSdk 33
 
     defaultConfig {
@@ -32,6 +33,7 @@ android {
     }
     buildFeatures {
         dataBinding true
+        buildConfig true
     }
 }
 
