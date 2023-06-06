@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace 'com.yoesuv.menu.infinite_scroll'
     compileSdk 33
 
     defaultConfig {
@@ -11,7 +12,7 @@ android {
         minSdk 21
         targetSdk 33
         versionCode 1
-        versionName "1.0.1"
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         setProperty("archivesBaseName", applicationId+"-v"+versionCode+"("+versionName+")")
@@ -32,14 +33,15 @@ android {
     }
     buildFeatures {
         dataBinding true
+        buildConfig true
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
