@@ -4,49 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="main"
             type="com.yoesuv.menu.infinite_scroll.viewmodels.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".views.MainActivity">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.MainActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPaginationList"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/main_button_padding_horizontal"
-            android:paddingVertical="@dimen/main_button_padding_vertical"
-            android:textAllCaps="false"
-            android:text="@string/button_pagination_list"
-            android:textSize="@dimen/main_button_text_size"
-            android:onClick="@{main::onClickPaginationList}"/>
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPaginationGrid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/main_button_padding_horizontal"
-            android:paddingVertical="@dimen/main_button_padding_vertical"
-            android:textAllCaps="false"
-            android:text="@string/button_pagination_grid"
-            android:textSize="@dimen/main_button_text_size"
-            android:onClick="@{main::onClickPaginationGrid}"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPaginationList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/main_button_padding_horizontal"
+                android:paddingVertical="@dimen/main_button_padding_vertical"
+                android:text="@string/button_pagination_list"
+                android:textAllCaps="false"
+                android:textSize="@dimen/main_button_text_size"
+                app:onPaginationListClick="@{main}" />
 
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPaginationGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/main_button_padding_horizontal"
+                android:paddingVertical="@dimen/main_button_padding_vertical"
+                android:text="@string/button_pagination_grid"
+                android:textAllCaps="false"
+                android:textSize="@dimen/main_button_text_size"
+                app:onPaginationGridClick="@{main}" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
