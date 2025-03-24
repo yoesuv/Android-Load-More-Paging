@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -32,6 +33,9 @@ class InfiniteGridActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        enableEdgeToEdge()
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_infinite_grid)
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this)[InfiniteGridViewModel::class.java]
