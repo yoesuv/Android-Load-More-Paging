@@ -15,6 +15,7 @@ import com.yoesuv.menu.infinite_grid.viewmodels.InfiniteGridViewModel
 import com.yoesuv.utils.adapters.LoadMoreStateAdapter
 import com.yoesuv.menu.infinite_scroll.R
 import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteGridBinding
+import com.yoesuv.utils.Utility
 import kotlinx.coroutines.launch
 
 class InfiniteGridActivity: AppCompatActivity() {
@@ -44,6 +45,8 @@ class InfiniteGridActivity: AppCompatActivity() {
         setupToolbar()
         setupRecyclerView()
         setupPaging()
+
+        Utility.insetsPadding(binding.clInfiniteGrid, top = true, bottom = true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

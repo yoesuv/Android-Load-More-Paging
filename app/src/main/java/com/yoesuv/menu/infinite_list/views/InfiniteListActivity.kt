@@ -14,6 +14,7 @@ import com.yoesuv.utils.adapters.LoadMoreStateAdapter
 import com.yoesuv.menu.infinite_list.viewmodels.InfiniteListViewModel
 import com.yoesuv.menu.infinite_scroll.R
 import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteListBinding
+import com.yoesuv.utils.Utility
 import kotlinx.coroutines.launch
 
 class InfiniteListActivity: AppCompatActivity() {
@@ -42,6 +43,8 @@ class InfiniteListActivity: AppCompatActivity() {
         setupToolbar()
         setupRecyclerView()
         setupPaging()
+
+        Utility.insetsPadding(binding.clInfiniteList, top = true, bottom = true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
