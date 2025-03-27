@@ -17,7 +17,7 @@ import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteListBinding
 import com.yoesuv.utils.Utility
 import kotlinx.coroutines.launch
 
-class InfiniteListActivity: AppCompatActivity() {
+class InfiniteListActivity : AppCompatActivity() {
 
     companion object {
         fun getInstance(context: Context): Intent {
@@ -33,7 +33,9 @@ class InfiniteListActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        enableEdgeToEdge()
+        if (Utility.isVanillaIceCreamAndUp()) {
+            enableEdgeToEdge()
+        }
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_infinite_list)
         binding.lifecycleOwner = this
@@ -44,7 +46,10 @@ class InfiniteListActivity: AppCompatActivity() {
         setupRecyclerView()
         setupPaging()
 
-        Utility.insetsPadding(binding.clInfiniteList, top = true, bottom = true)
+        if (Utility.isVanillaIceCreamAndUp()) {
+            Utility.insetsPadding(binding.toolbarList, top = true)
+            Utility.insetsPadding(binding.clInfiniteList, bottom = true)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -55,6 +60,7 @@ class InfiniteListActivity: AppCompatActivity() {
     }
 
     private fun setupToolbar() {
+        setSupportActionBar(binding.toolbarList)
         supportActionBar?.setTitle(R.string.button_pagination_list)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

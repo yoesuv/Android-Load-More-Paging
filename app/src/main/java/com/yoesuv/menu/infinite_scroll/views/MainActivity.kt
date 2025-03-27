@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 top = true,
                 color = getColor(R.color.teal_500)
             )
-            Utility.insetsPadding(binding.clMain, top = true, bottom = true)
+            Utility.insetsPadding(binding.clMain, bottom = true)
         }
     }
 

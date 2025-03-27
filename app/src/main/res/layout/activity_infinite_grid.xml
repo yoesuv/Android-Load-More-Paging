@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="grid"
             type="com.yoesuv.menu.infinite_grid.viewmodels.InfiniteGridViewModel" />
@@ -13,14 +15,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIconTint="@color/white"
+            app:titleTextColor="@color/toolbar_text_color" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvInfiniteGrid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:clipToPadding="false"
             android:padding="4dp"
-            tools:listitem="@layout/item_grid_post"
-            tools:itemCount="2"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarGrid"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_grid_post" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -18,7 +18,7 @@ import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteGridBinding
 import com.yoesuv.utils.Utility
 import kotlinx.coroutines.launch
 
-class InfiniteGridActivity: AppCompatActivity() {
+class InfiniteGridActivity : AppCompatActivity() {
 
     companion object {
         fun getInstance(context: Context): Intent {
@@ -35,7 +35,9 @@ class InfiniteGridActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        enableEdgeToEdge()
+        if (Utility.isVanillaIceCreamAndUp()) {
+            enableEdgeToEdge()
+        }
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_infinite_grid)
         binding.lifecycleOwner = this
@@ -46,7 +48,10 @@ class InfiniteGridActivity: AppCompatActivity() {
         setupRecyclerView()
         setupPaging()
 
-        Utility.insetsPadding(binding.clInfiniteGrid, top = true, bottom = true)
+        if (Utility.isVanillaIceCreamAndUp()) {
+            Utility.insetsPadding(binding.toolbarGrid, top = true)
+            Utility.insetsPadding(binding.clInfiniteGrid, bottom = true)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -57,6 +62,7 @@ class InfiniteGridActivity: AppCompatActivity() {
     }
 
     private fun setupToolbar() {
+        setSupportActionBar(binding.toolbarGrid)
         supportActionBar?.setTitle(R.string.button_pagination_grid)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
@@ -68,7 +74,7 @@ class InfiniteGridActivity: AppCompatActivity() {
         loadMoreAdapter = LoadMoreStateAdapter()
         binding.rvInfiniteGrid.layoutManager = gridLayoutManager
         binding.rvInfiniteGrid.adapter = gridPostAdapter.withLoadStateFooter(loadMoreAdapter)
-        gridLayoutManager.spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
+        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 return if (position == gridPostAdapter.itemCount && loadMoreAdapter.itemCount > 0) {
                     spanCount
