@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -13,9 +14,10 @@ import com.yoesuv.utils.adapters.LoadMoreStateAdapter
 import com.yoesuv.menu.infinite_list.viewmodels.InfiniteListViewModel
 import com.yoesuv.menu.infinite_scroll.R
 import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteListBinding
+import com.yoesuv.utils.Utility
 import kotlinx.coroutines.launch
 
-class InfiniteListActivity: AppCompatActivity() {
+class InfiniteListActivity : AppCompatActivity() {
 
     companion object {
         fun getInstance(context: Context): Intent {
@@ -30,6 +32,11 @@ class InfiniteListActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (Utility.isVanillaIceCreamAndUp()) {
+            enableEdgeToEdge()
+        }
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_infinite_list)
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this)[InfiniteListViewModel::class.java]
@@ -38,6 +45,11 @@ class InfiniteListActivity: AppCompatActivity() {
         setupToolbar()
         setupRecyclerView()
         setupPaging()
+
+        if (Utility.isVanillaIceCreamAndUp()) {
+            Utility.insetsPadding(binding.toolbarList, top = true)
+            Utility.insetsPadding(binding.clInfiniteList, bottom = true)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -48,6 +60,7 @@ class InfiniteListActivity: AppCompatActivity() {
     }
 
     private fun setupToolbar() {
+        setSupportActionBar(binding.toolbarList)
         supportActionBar?.setTitle(R.string.button_pagination_list)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

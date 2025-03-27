@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -14,9 +15,10 @@ import com.yoesuv.menu.infinite_grid.viewmodels.InfiniteGridViewModel
 import com.yoesuv.utils.adapters.LoadMoreStateAdapter
 import com.yoesuv.menu.infinite_scroll.R
 import com.yoesuv.menu.infinite_scroll.databinding.ActivityInfiniteGridBinding
+import com.yoesuv.utils.Utility
 import kotlinx.coroutines.launch
 
-class InfiniteGridActivity: AppCompatActivity() {
+class InfiniteGridActivity : AppCompatActivity() {
 
     companion object {
         fun getInstance(context: Context): Intent {
@@ -32,6 +34,11 @@ class InfiniteGridActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (Utility.isVanillaIceCreamAndUp()) {
+            enableEdgeToEdge()
+        }
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_infinite_grid)
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this)[InfiniteGridViewModel::class.java]
@@ -40,6 +47,11 @@ class InfiniteGridActivity: AppCompatActivity() {
         setupToolbar()
         setupRecyclerView()
         setupPaging()
+
+        if (Utility.isVanillaIceCreamAndUp()) {
+            Utility.insetsPadding(binding.toolbarGrid, top = true)
+            Utility.insetsPadding(binding.clInfiniteGrid, bottom = true)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -50,6 +62,7 @@ class InfiniteGridActivity: AppCompatActivity() {
     }
 
     private fun setupToolbar() {
+        setSupportActionBar(binding.toolbarGrid)
         supportActionBar?.setTitle(R.string.button_pagination_grid)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
@@ -61,7 +74,7 @@ class InfiniteGridActivity: AppCompatActivity() {
         loadMoreAdapter = LoadMoreStateAdapter()
         binding.rvInfiniteGrid.layoutManager = gridLayoutManager
         binding.rvInfiniteGrid.adapter = gridPostAdapter.withLoadStateFooter(loadMoreAdapter)
-        gridLayoutManager.spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
+        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 return if (position == gridPostAdapter.itemCount && loadMoreAdapter.itemCount > 0) {
                     spanCount
